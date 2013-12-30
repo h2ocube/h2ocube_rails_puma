@@ -1,0 +1,18 @@
+PATH
+  remote: .
+  specs:
+    h2ocube_rails_puma (0.0.1)
+      puma
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    puma (2.7.1)
+      rack (>= 1.1, < 2.0)
+    rack (1.5.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  h2ocube_rails_puma!

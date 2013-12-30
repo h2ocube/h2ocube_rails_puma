@@ -1,0 +1,5 @@
+# Logfile created on 2013-12-30 13:30:09 +0800 by logger.rb/44203
+I, [2013-12-30T13:30:09.769206 #5674]  INFO -- : 0:  rack (1.5.2) from /Users/ben/.rvm/gems/ruby-2.1.0/specifications/rack-1.5.2.gemspec
+I, [2013-12-30T13:30:09.770101 #5674]  INFO -- : 0:  puma (2.7.1) from /Users/ben/.rvm/gems/ruby-2.1.0/specifications/puma-2.7.1.gemspec
+I, [2013-12-30T13:30:09.785992 #5674]  INFO -- : 0:  h2ocube_rails_puma (0.0.1) from /Users/ben/dev/h2ocube_rails_puma/h2ocube_rails_puma.gemspec
+I, [2013-12-30T13:30:09.786398 #5674]  INFO -- : 0:  bundler (1.5.0) from /Users/ben/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.0.gemspec
