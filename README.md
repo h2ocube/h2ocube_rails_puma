@@ -20,6 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
+    # generate config/puma.rb
+    rails g h2ocube_rails_puma
+
     # Capfile
     require 'capistrano/puma'
 

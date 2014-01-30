@@ -1,0 +1,7 @@
+application_path = File.expand_path('../../', __FILE__)
+
+stdout_redirect "#{application_path}/log/puma.stdout.log", "#{application_path}/log/puma.stderr.log"
+
+threads 0,1
+workers 1
+preload_app!
