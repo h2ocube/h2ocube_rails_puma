@@ -26,6 +26,13 @@ namespace :puma do
     end
   end
 
+  desc 'Cold Restart puma'
+  task :cold_restart do
+    invoke 'puma:stop'
+    sleep 3
+    invoke 'puma:start'
+  end
+
   def state_path
     "#{shared_path}/sockets/puma.state"
   end
