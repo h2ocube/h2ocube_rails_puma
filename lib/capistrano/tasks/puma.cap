@@ -21,6 +21,15 @@ namespace :puma do
   task :restart do
     on roles :app do
       within release_path do
+        execute :bundle, "exec pumactl -S #{state_path} restart;true"
+      end
+    end
+  end
+
+  desc 'Phased restart puma'
+  task :phased_restart do
+    on roles :app do
+      within release_path do
         execute :bundle, "exec pumactl -S #{state_path} phased-restart;true"
       end
     end

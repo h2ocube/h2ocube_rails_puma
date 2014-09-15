@@ -31,6 +31,7 @@ Puma specific tasks for Capistrano v3:
     cap puma:start
     cap puma:stop
     cap puma:restart
+    cap puma:phased_restart
     cap puma:cold_restart
 
     # nginx.conf
