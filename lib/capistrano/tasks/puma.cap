@@ -1,9 +1,11 @@
+set :puma_rb, 'config/puma.rb'
+
 namespace :puma do
   desc 'Start puma'
   task :start do
     on roles :app do
       within release_path do
-        execute :bundle, "exec puma -C config/puma.rb -b 'unix://#{shared_path}/sockets/puma.sock' --pidfile #{shared_path}/pids/puma.pid -S #{state_path} -e #{fetch(:stage)} -d"
+        execute :bundle, "exec puma -C #{fetch :puma_rb} -b 'unix://#{shared_path}/sockets/puma.sock' --pidfile #{shared_path}/pids/puma.pid -S #{state_path} -e #{fetch :stage} -d"
       end
     end
   end
@@ -46,5 +48,5 @@ namespace :puma do
     "#{shared_path}/sockets/puma.state"
   end
 
-  before 'deploy:published', 'puma:restart'
+  before 'deploy:published', 'puma:phased_restart'
 end
