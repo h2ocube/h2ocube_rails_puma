@@ -48,5 +48,5 @@ namespace :puma do
     "#{shared_path}/sockets/puma.state"
   end
 
-  before 'deploy:published', 'puma:phased_restart'
+  before 'deploy:published', 'puma:cold_restart'
 end
