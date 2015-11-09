@@ -1,11 +1,13 @@
 set :puma_rb, 'config/puma.rb'
+set :puma_threads, '0:16'
+set :puma_workers, '2'
 
 namespace :puma do
   desc 'Start puma'
   task :start do
     on roles :app do
       within release_path do
-        execute :bundle, "exec puma -C #{fetch :puma_rb} -b 'unix://#{shared_path}/sockets/puma.sock' --pidfile #{shared_path}/pids/puma.pid -S #{state_path} -e #{fetch :stage} -d"
+        execute :bundle, "exec puma -C #{fetch :puma_rb} -b 'unix://#{shared_path}/sockets/puma.sock' -t #{fetch :puma_threads} -w #{fetch :puma_workers} --pidfile #{shared_path}/pids/puma.pid -S #{state_path} -e #{fetch :stage} -d"
       end
     end
   end
@@ -40,7 +42,7 @@ namespace :puma do
   desc 'Cold Restart puma'
   task :cold_restart do
     invoke 'puma:stop'
-    sleep 3
+    sleep 1
     invoke 'puma:start'
   end
 

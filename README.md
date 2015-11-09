@@ -26,6 +26,11 @@ Or install it yourself as:
     # Capfile
     require 'capistrano/puma'
 
+    # deploy.rb
+    set :puma_rb, 'config/puma.rb'
+    set :puma_threads, '0:16'
+    set :puma_workers, '2'
+
 Puma specific tasks for Capistrano v3:
 
     cap puma:start

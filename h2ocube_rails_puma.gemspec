@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'h2ocube_rails_puma'
-  spec.version       = '0.0.6'
+  spec.version       = '0.0.7'
   spec.authors       = ['Ben']
   spec.email         = ['ben@zfben.com']
-  spec.description   = %q{Just a collection for development gems}
-  spec.summary       = %q{Just a collection for development gems}
+  spec.description   = 'Puma plugin for Rails and Capistrano'
+  spec.summary       = 'Puma plugin for Rails and Capistrano'
   spec.homepage      = 'https://github.com/h2ocube/h2ocube_rails_puma'
   spec.license       = 'MIT'
 
