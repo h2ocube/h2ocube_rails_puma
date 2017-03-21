@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'h2ocube_rails_puma'
-  spec.version       = '0.0.7'
+  spec.version       = '0.1.0'
   spec.authors       = ['Ben']
   spec.email         = ['ben@zfben.com']
   spec.description   = 'Puma plugin for Rails and Capistrano'
@@ -18,4 +18,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'puma'
+  spec.add_dependency 'puma_worker_killer'
+  spec.add_dependency 'capistrano3-puma'
 end

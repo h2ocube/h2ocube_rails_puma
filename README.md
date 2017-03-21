@@ -8,7 +8,7 @@ Puma helper.
 
 Add this line to your application's Gemfile:
 
-    gem 'h2ocube_rails_puma', group: [:development, :production]
+    gem 'h2ocube_rails_puma'
 
 And then execute:
 
@@ -20,24 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-    # generate config/puma.rb
+    # generate config/deploy/templates/puma.rb.erb
     rails g h2ocube_rails_puma
 
     # Capfile
     require 'capistrano/puma'
-
-    # deploy.rb
-    set :puma_rb, 'config/puma.rb'
-    set :puma_threads, '0:16'
-    set :puma_workers, '2'
-
-Puma specific tasks for Capistrano v3:
-
-    cap puma:start
-    cap puma:stop
-    cap puma:restart
-    cap puma:phased_restart
-    cap puma:cold_restart
 
     # nginx.conf
     upstream app {
@@ -45,6 +32,7 @@ Puma specific tasks for Capistrano v3:
     }
     server {
       listen 80;
+      listen [::]:80;
       server_name app.com;
       root /root/app/current/public;
       location / {
@@ -58,6 +46,7 @@ Puma specific tasks for Capistrano v3:
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_set_header X-UA-Compatible IE=edge,chrome=1;
+        proxy_http_version 1.1;
         proxy_redirect off;
         proxy_pass http://app;
       }
@@ -66,6 +55,8 @@ Puma specific tasks for Capistrano v3:
 ## Include
 
 * puma https://github.com/puma/puma
+* puma_worker_killer https://github.com/schneems/puma_worker_killer
+* capistrano3-puma https://github.com/seuros/capistrano-puma
 
 ## Contributing
 
